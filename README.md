@@ -2,11 +2,15 @@
 
 A Visual Studio Code Generator to create Storybook stories from your components real quick.
 
-## Features
+Open the tsx file that contains the component for which you want to create a story, then from the command palette run.
 
-### `Create a Storybook story` command
+<kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd>
 
-Open the tsx file that contains the component for which you want to create a story, then from the command palette run "Create a Storybook story".
+and type
+
+`"Story: Create a Storybook Storybook"`
+
+![Create a Storybook story command demo](command-demo.gif)
 
 A new _unsaved_ file will be created with the basics of a Storybook story in the Component Story Format (CSF) filled out for you. Move between the placeholders with TAB, customize the names as you want and you are done.
 
