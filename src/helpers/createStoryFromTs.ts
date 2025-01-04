@@ -18,7 +18,6 @@ function typeValue(
   type: PropItemType,
   defaultValue: null | { value: any }
 ): string | any[] {
-  console.log(type);
   switch (type.name) {
     case "enum":
       if (Array.isArray(type.value)) {
@@ -33,7 +32,7 @@ function typeValue(
     case "Date":
       return defaultOrPlaceholder(defaultValue, `new Date()`);
     case "string":
-      return `"${defaultOrPlaceholder(defaultValue, type.name)}"`;
+      return `"${defaultOrPlaceholder(defaultValue, "")}"`;
     default:
       return `undefined`;
   }
@@ -53,15 +52,18 @@ export async function createStoryFromTs(
   storyUri: vscode.Uri,
   importName: string
 ) {
+  let file = "";
   const parseResult = withDefaultConfig({
     shouldExtractLiteralValuesFromEnum: true,
+    componentNameResolver: (_exp, source) => {
+      file = source.text;
+      return undefined;
+    },
   }).parse(componentFsPath);
 
   const components = parseResult;
+
   let component: (ComponentDoc & { isDefault?: boolean }) | undefined;
-  console.log("components", components);
-  console.log("importName", importName);
-  console.log("storyUri", storyUri);
 
   switch (components.length) {
     case 0:
@@ -77,6 +79,9 @@ export async function createStoryFromTs(
       break;
     case 1:
       component = components[0];
+      component.isDefault = file.includes(
+        `export default ${component.displayName}`
+      );
       break;
     default:
       const items = components.map((c) => c.displayName);
@@ -86,6 +91,9 @@ export async function createStoryFromTs(
           "There are many components exported, which one do you want to use for the story?",
       });
       component = components.find((c) => c.displayName === selection)!;
+      component.isDefault = file.includes(
+        `export default ${component.displayName}`
+      );
   }
 
   await checkExistingStory(storyUri, "typescriptreact");

@@ -2,7 +2,7 @@
   "name": "storybook-generator",
   "displayName": "Storybook Generator",
   "description": "Quickly create Storybook's stories for your React components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "NicolasGodefroy",
   "repository": {
     "type": "git",
