@@ -1,7 +1,7 @@
 {
   "name": "storybook-generator",
   "displayName": "Storybook Generator",
-  "description": "Quickly create Storybook's stories for your Typescript React components",
+  "description": "Quickly create Storybook's stories in csf3 format for your Typescript React components",
   "version": "1.0.2",
   "publisher": "NicolasGodefroy",
   "repository": {
