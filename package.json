@@ -4,6 +4,14 @@
   "description": "Quickly create Storybook's stories for your React components",
   "version": "0.0.1",
   "publisher": "nicolas-godefroy-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicolas-godefroy-dev/storybook-generator"
+  },
+  "homepage": "https://github.com/nicolas-godefroy-dev/storybook-generator/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/nicolas-godefroy-dev/storybook-generator/issues"
+  },
   "engines": {
     "vscode": "^1.96.0"
   },
