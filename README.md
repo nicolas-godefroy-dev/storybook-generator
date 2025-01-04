@@ -8,7 +8,7 @@ Open the tsx file that contains the component for which you want to create a sto
 
 and type
 
-`"Story: Create a Storybook Storybook"`
+`"Story: Create a Storybook Story"`
 
 ![Create a Storybook story command demo](command-demo.gif)
 
