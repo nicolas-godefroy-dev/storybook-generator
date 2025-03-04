@@ -112,7 +112,6 @@ export async function createStoryFromTs(
 ${cmpImport}
 
 export default {
-  title: "components/\${2:${component.displayName}}",
   component: ${component.displayName},
 } satisfies Meta<typeof ${component.displayName}>
 
